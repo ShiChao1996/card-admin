@@ -203,6 +203,22 @@ const Routers = function ({ history, app }) {
               cb(null, require('./routes/myUser/person/'))
             }, 'person')
           },
+        },{
+          path: 'myUser/reportLose',
+          getComponent (nextState, cb) {
+            require.ensure([], require => {
+              registerModel(app, require('./models/report'))
+              cb(null, require('./routes/myUser/reportLose/'))
+            }, 'reportLose')
+          },
+        },{
+          path: 'admin/workAdress',
+          getComponent (nextState, cb) {
+            require.ensure([], require => {
+            //  registerModel(app, require('./models/person'))
+              cb(null, require('./routes/admin/workAdress/'))
+            }, 'workAdress')
+          },
         }, {
           path: '*',
           getComponent (nextState, cb) {

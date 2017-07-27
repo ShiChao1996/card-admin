@@ -1,0 +1,107 @@
+.table{
+  border: 1px solid #eeeeee;
+  margin-top: 10px;
+  transition: all 0.8s;
+  background-color: white;
+}
+
+.table:hover {
+  margin-top: 10px;
+  background-color: white;
+  box-shadow: 1px 1px 20px 2px rgba(139, 134, 143, 0.31);
+}
+
+.title{
+  font-size: 20px;
+  font-weight: 300;
+  color: #989898;
+}
+
+.label{
+  text-align: end;
+}
+
+.loading{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 4;
+}
+
+.line{
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form{
+  box-sizing: border-box;
+  width: 320px;
+  box-shadow: 1px 1px 20px 2px rgba(139, 134, 143, 0.31);
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+
+}
+
+.btn{
+  width: 80%;
+}
+
+.container{
+  width: 100%;
+}
+
+
+.form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -160px 0 0 -160px;
+  width: 320px;
+  height: 320px;
+  padding: 36px;
+  box-shadow: 0 0 100px rgba(0,0,0,.08);
+
+  button {
+    width: 100%;
+  }
+
+  p {
+    color: rgb(204, 204, 204);
+    text-align: center;
+    margin-top: 16px;
+
+    span {
+      &:first-child {
+        margin-right: 16px;
+      }
+    }
+  }
+}
+
+.logo {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  cursor: pointer;
+  margin-bottom: 24px;
+
+  img {
+    width: 40px;
+    margin-right: 8px;
+  }
+
+  span {
+    vertical-align: text-bottom;
+    font-size: 16px;
+    text-transform: uppercase;
+    display: inline-block;
+  }
+}
+
+.ant-spin-container,
+.ant-spin-nested-loading {
+  height: 100%;
+}

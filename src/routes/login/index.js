@@ -15,6 +15,7 @@ const Login = ({
     validateFieldsAndScroll,
   },
 }) => {
+  console.log(login)
   const { loginLoading } = login
 
   function handleOk () {
@@ -73,3 +74,53 @@ Login.propTypes = {
 }
 
 export default connect(({ login }) => ({ login }))(Form.create()(Login))
+
+
+/*
+
+<div className={styles.form}>
+<div className={styles.logo}>
+<span className={styles.title}>申请挂失</span>
+</div>
+<form>
+<FormItem hasFeedback>
+{getFieldDecorator('username', {
+  rules: [
+    {
+      required: true,
+    },
+  ],
+})(<Row gutter={16}><Col span={6} className={styles.label}>姓名</Col><Col span={16}><Input size="large" onPressEnter={handleOk} placeholder="Username" /></Col></Row>)}
+</FormItem>
+<FormItem hasFeedback>
+  {getFieldDecorator('stuId', {
+    rules: [
+      {
+        required: true,
+      },
+    ],
+  })(<Row gutter={16}><Col span={6} className={styles.label}>学号</Col><Col span={16}><Input size="large" onPressEnter={handleOk} placeholder="Username" /></Col></Row>)}
+</FormItem>
+<FormItem hasFeedback>
+  {getFieldDecorator('identity', {
+    rules: [
+      {
+        required: true,
+      },
+    ],
+  })(<Row gutter={16}><Col span={6} className={styles.label}>身份证</Col><Col span={16}><Input size="large" onPressEnter={handleOk} placeholder="Username" /></Col></Row>)}
+</FormItem>
+<Row>
+  <Button type="primary" size="large" onClick={handleOk}
+    // loading={loading}
+  >
+    提交
+  </Button>
+  </Row>
+
+  </form>
+  {/!*{
+ loading ? <Icon type="sync" spin={true} className={styles.loading} /> : null
+ }*!/}
+
+</div>*/

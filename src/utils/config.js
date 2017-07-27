@@ -27,6 +27,7 @@ module.exports = {
     newsList: '',
     newsDetail: '',
     news: '',
-    personInfo: ''
+    personInfo: '',
+    reportLose: '',
   },
 }

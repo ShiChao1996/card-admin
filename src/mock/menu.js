@@ -229,6 +229,27 @@ module.exports = [
     route: '/myUser/person',
     permission: 'admin'
   },
+  {
+    id: '92',
+    mpid: '9',
+    name: 'loseReport',
+    route: '/myUser/reportLose',
+    permission: 'admin'
+  },
+  {
+    id: 'a',
+    bpid: '1',
+    name: 'User',
+    icon: 'user',
+    permission: 'admin'
+  },
+  {
+    id: 'a1',
+    mpid: 'a',
+    name: 'workAdress',
+    route: '/admin/workAdress',
+    permission: 'admin'
+  },
 ]
 /*
 

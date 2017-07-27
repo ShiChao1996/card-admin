@@ -47,11 +47,12 @@ class Table extends React.Component {
   }
 
   render() {
+    const { personality } = this.props
     return (
       <div className={styles.table}>
         <Row className={styles.line}>
           <Col span={10}  className={styles.col}>姓名</Col>
-          <Col span={10}  className={styles.col}>hjkhjhjhj</Col>
+          <Col span={10}  className={styles.col}>{personality.name}</Col>
         </Row>
         <Row className={styles.line}>
           <Col span={10}  className={styles.col}>性别</Col>
