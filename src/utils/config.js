@@ -29,5 +29,6 @@ module.exports = {
     news: '',
     personInfo: '',
     reportLose: '',
+    workAdress: '',
   },
 }

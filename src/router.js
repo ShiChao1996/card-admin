@@ -215,7 +215,7 @@ const Routers = function ({ history, app }) {
           path: 'admin/workAdress',
           getComponent (nextState, cb) {
             require.ensure([], require => {
-            //  registerModel(app, require('./models/person'))
+              registerModel(app, require('./models/workAdress'))
               cb(null, require('./routes/admin/workAdress/'))
             }, 'workAdress')
           },

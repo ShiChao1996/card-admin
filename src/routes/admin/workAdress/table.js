@@ -29,47 +29,118 @@
 
 import React from 'react'
 import {connect} from 'dva'
-import {Sub, Table, Row, Col, Card, Button} from 'antd'
-import { DataTable } from 'components'
+import {Sub, Input, Row, Col, Modal, Button, message} from 'antd'
+import {DataTable} from 'components'
 import styles from './index.less'
-
-let tableProps = {
-  dataSource: [{ key: '1', adress: 'xxx', workTime: '9:00 ~ 18:00', phone: 'xxxxxxxxxxxxx'}],
-  columns: [
-    { title: '删除', width: 100, key: 'delete', fixed: 'left',render: () => <Button type="danger">删除</Button>},
-    { title: '办公地点', dataIndex: 'adress' },
-    { title: '上班时间', dataIndex: 'workTime' },
-    { title: '联系电话', dataIndex: 'phone' },
-    { title: '编辑', width: 100, key: 'operate', fixed: 'right',render: () => <Button type="danger" onClick={() => this.edit()}>编辑</Button>}
-  ],
-  pagination: false,
-}
 
 class WorkTable extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      dataSource: [
+        {key: '1', adress: 'xxx', workTime: '9:00 ~ 18:00', phone: 'xxxxxxxxxxxxx'},
+      ],
+      editModalVisible: false,
+      loading: false
+    }
+    this.currentValues = this.state.dataSource[0]
   }
 
-  componentWillReceiveProps(nextProps){
-
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      loading: nextProps.isLoading,
+    })
   }
 
   render() {
+    const columns = [
+      {title: '办公地点', dataIndex: 'adress'},
+      {title: '上班时间', dataIndex: 'workTime'},
+      {title: '联系电话', dataIndex: 'phone'},
+      {
+        title: '编辑',
+        width: 100,
+        key: 'operate',
+        fixed: 'right',
+        render: () => <Button type="primary" onClick={() => this.openEdit()}>编辑</Button>
+      }
+    ]
 
     return (
       <div>
         <div className={styles.table}>
           <DataTable
-            {...tableProps}
+            columns={columns}
+            pagination={false}
+            dataSource={this.state.dataSource}
           />
         </div>
+        <Modal visible={this.state.editModalVisible}
+               onCancel={() => this.closeEditModal()}
+               onOk={() => this.changeData()}
+               confirmLoading={this.state.loading}
+        >
+          <div className={styles.modalContainer}>
+            <Row className={styles.line}>
+              <Col span={6} className={styles.col}>{columns[0].title}</Col>
+              <Col span={18} className={styles.col}>
+                <Input defaultValue={this.state.dataSource[0].adress} onBlur={(e) => this.getNew('adress', e)}/>
+              </Col>
+            </Row>
+            <Row className={styles.line}>
+              <Col span={6} className={styles.col}>{columns[1].title}</Col>
+              <Col span={18} className={styles.col}>
+                <Input defaultValue={this.state.dataSource[0].workTime} onBlur={(e) => this.getNew('workTime', e)}/>
+              </Col>
+            </Row>
+            <Row className={styles.line}>
+              <Col span={6} className={styles.col}>{columns[2].title}</Col>
+              <Col span={18} className={styles.col}>
+                <Input defaultValue={this.state.dataSource[0].phone} onBlur={(e) => this.getNew('phone', e)}/>
+              </Col>
+            </Row>
+          </div>
+        </Modal>
       </div>
 
     )
   }
 
-  edit(){
-    tableProps.dataSource[0].phone = "asjfdksfhndvcxm"
+  openEdit() {
+    this.setState({
+      editModalVisible: true
+    })
+  }
+
+  closeEditModal() {
+    this.setState({
+      editModalVisible: false
+    })
+  }
+
+  changeData() {
+    let payload = {
+      adress: this.currentValues.adress,
+      workTime: this.currentValues.workTime,
+      phone: this.currentValues.phone,
+      onSuccess: (newvalues) =>  {
+        message.success('提交成功！',5)
+        this.state.dataSource.adress = newvalues.adress
+        this.state.dataSource.workTime = newvalues.workTime
+        this.state.dataSource.phone = newvalues.phone
+
+        this.setState({
+          editModalVisible: false,
+          dataSource: this.state.dataSource
+        })
+      },
+      onFail: () =>  message.error('提交失败！',5)
+    }
+    this.props.onOk(payload);
+  }
+
+  getNew(key, e) {
+    this.currentValues[key] = e.target.value
   }
 
 }

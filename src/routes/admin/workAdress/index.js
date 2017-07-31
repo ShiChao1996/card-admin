@@ -4,18 +4,24 @@ import { connect } from 'dva'
 import Table from './table'
 import styles from './index.less'
 
-const Person = () => {
+const WorkAdress = ({ workAdress, dispatch }) => {
 
+  console.log(workAdress)
+  function submit(payload) {
+    console.log('im callback!!!')
+    dispatch({type: 'workAdress/submit', payload: payload})
+  }
   return (
     <div className="content-inner">
       <h2>hhhhdfsansd</h2>
-      <Table />
+      <Table onOk={submit} isLoading={workAdress.loading} />
     </div>
   )
 }
 
-Person.propTypes = {
-  person: PropTypes.object,
+WorkAdress.propTypes = {
+  workAdress: PropTypes.object,
+  dispatch: PropTypes.func,
 }
 
-export default connect()(Person)
+export default connect(({ workAdress }) => ({ workAdress }))(WorkAdress)
