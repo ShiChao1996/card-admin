@@ -15,7 +15,6 @@ export default {
     *submit ({
       payload,
     }, { put, call }) {
-      console.log(payload)
       yield put({ type: 'showLoading' })
       const data = yield call(update, payload)
       if(data.success === true){

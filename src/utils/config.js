@@ -30,5 +30,6 @@ module.exports = {
     personInfo: '',
     reportLose: '',
     workAdress: '',
+    lostManage: '',
   },
 }

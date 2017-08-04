@@ -219,6 +219,14 @@ const Routers = function ({ history, app }) {
               cb(null, require('./routes/admin/workAdress/'))
             }, 'workAdress')
           },
+        },{
+          path: 'admin/lostManage',
+          getComponent (nextState, cb) {
+            require.ensure([], require => {
+              registerModel(app, require('./models/lostManage'))
+              cb(null, require('./routes/admin/lostManage/'))
+            }, 'workAdress')
+          },
         }, {
           path: '*',
           getComponent (nextState, cb) {

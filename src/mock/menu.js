@@ -250,6 +250,20 @@ module.exports = [
     route: '/admin/workAdress',
     permission: 'admin'
   },
+  {
+    id: 'a2',
+    mpid: 'a',
+    name: 'lostManage',
+    route: '/admin/lostManage',
+    permission: 'admin'
+  },
+  {
+    id: 'a3',
+    mpid: 'a',
+    name: 'newsManage',
+    route: '/admin/newsManage',
+    permission: 'admin'
+  },
 ]
 /*
 
