@@ -1,10 +1,8 @@
 import React from 'react'
 import { Editor } from 'components'
-import { convertToRaw } from 'draft-js'
+import { convertToRaw, createFromText, convertFromRaw, createFromContent } from 'draft-js'
 import { Row, Col, Card } from 'antd'
-import draftToHtml from 'draftjs-to-html'
 import draftToMarkdown from 'draftjs-to-markdown'
-// https://github.com/jpuri/react-draft-wysiwyg/blob/master/docs/src/components/Demo/index.js
 
 export default class EditorPage extends React.Component {
   constructor (props) {
@@ -13,13 +11,25 @@ export default class EditorPage extends React.Component {
       editorContent: null,
     }
   }
+
+  componentWillMount(){
+    let text =  this.props.content ? this.props.content : ""
+    let content = createFromText(text)
+
+    this.setState({
+      editorContent: content
+    })
+  }
+
   onEditorStateChange = (editorContent) => {
+    console.log(editorContent)
     this.setState({
       editorContent,
     })
   }
   render () {
     const { editorContent } = this.state
+    console.log(editorContent)
     const colProps = {
       lg: 12,
       md: 24,
@@ -42,17 +52,8 @@ export default class EditorPage extends React.Component {
               editorStyle={{
                 minHeight: 376,
               }}
-              editorState={editorContent}
+              editorState={this.state.editorContent}
               onEditorStateChange={this.onEditorStateChange}
-            />
-          </Card>
-        </Col>
-        <Col {...colProps}>
-          <Card title="HTML">
-            <textarea
-              style={textareaStyle}
-              disabled
-              value={editorContent ? draftToHtml(convertToRaw(editorContent.getCurrentContent())) : ''}
             />
           </Card>
         </Col>
@@ -62,15 +63,6 @@ export default class EditorPage extends React.Component {
               style={textareaStyle}
               disabled
               value={editorContent ? draftToMarkdown(convertToRaw(editorContent.getCurrentContent())) : ''}
-            />
-          </Card>
-        </Col>
-        <Col {...colProps}>
-          <Card title="JSON">
-            <textarea
-              style={textareaStyle}
-              disabled
-              value={editorContent ? JSON.stringify(convertToRaw(editorContent.getCurrentContent())) : ''}
             />
           </Card>
         </Col>

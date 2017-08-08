@@ -1,8 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017 Shichao Inc.
- *
+ *  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -21,34 +20,38 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-/**
+
+/*
  * Revision History:
- *     Initial: 2017/07/05        Shi Chao
+ *     Initial: 2017/07/13        ShiChao
  */
 
-import './index.html'
-import 'babel-polyfill'
-import dva from 'dva'
-import createLoading from 'dva-loading'
-import { browserHistory } from 'dva/router'
-import { message } from 'antd'
+import React from 'react'
+import { DataTable } from 'components'
+import styles from './index.less'
 
-// 1. Initialize
-const app = dva({
-  ...createLoading({
-    effects: true,
-  }),
-  history: browserHistory,
-  onError (error) {
-    message.error(error.message)
-  },
-})
+export default class ListView extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      dataSource: this.props.dataSource ? this.props.dataSource : []
+    }
+  }
 
-// 2. Model
-app.model(require('./models/app'))
+  componentWillReceiveProps(newProps){
+    this.setState({
+      dataSource: newProps.dataSource
+    })
+  }
 
-// 3. Router
-app.router(require('./router'))
+  render() {
+    const {renderItem, style} = this.props
+    return (
+      <div className={styles.listView} style={{height: document.body.clientHeight - 200}}>
+        {this.state.dataSource.map(item => renderItem(item))}
+      </div>
+    )
+  }
 
-// 4. Start
-app.start('#root')
+}
+

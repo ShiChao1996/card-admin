@@ -10,7 +10,7 @@ const Detail = ({ newsDetail }) => {
 
   return (<div className="content-inner">
     <div className={styles.content}>
-      dfdsaf
+      xxxxxxxdddd
     </div>
   </div>)
 }

@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017 SmartestEE Inc.
+ * Copyright (c) 2017 Shichao Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +23,7 @@
  */
 /**
  * Revision History:
- *     Initial: 2017/06/05        Shi Chao
+ *     Initial: 2017/07/05        Shi Chao
  */
 'use strict'
 

@@ -264,6 +264,13 @@ module.exports = [
     route: '/admin/newsManage',
     permission: 'admin'
   },
+  {
+    id: 'a4',
+    mpid: '-1',
+    name: 'newsManageDetail',
+    route: '/admin/newsManage/:id',
+    permission: 'admin'
+  },
 ]
 /*
 

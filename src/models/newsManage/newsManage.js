@@ -8,10 +8,10 @@ import { pageModel } from '../common'
 import { config } from 'utils'
 
 export default modelExtend(pageModel, {
-  namespace: 'news',
+  namespace: 'newsManage',
 
   state: {
-    newsList: []
+    newsList: [4,7,5,2,3,5]
   },
 
   subscriptions: {
@@ -33,7 +33,7 @@ export default modelExtend(pageModel, {
       const data = yield call(query, payload)
       if (data) {
         yield put({
-          type: 'querySuccess',
+          type: 'queryNewsSuccess',
           payload: {
             list: data.data,
           },
@@ -48,7 +48,7 @@ export default modelExtend(pageModel, {
   },
 
   reducers: {
-    querySuccess (state, { payload }) {
+    queryNewsSuccess (state, { payload }) {
       const newsList = payload
       console.log('state data: ', state)
       return {

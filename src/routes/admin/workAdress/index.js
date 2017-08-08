@@ -13,7 +13,6 @@ const WorkAdress = ({ workAdress, dispatch }) => {
   }
   return (
     <div className="content-inner">
-      <h2>hhhhdfsansd</h2>
       <Table onOk={submit} isLoading={workAdress.loading} />
     </div>
   )
