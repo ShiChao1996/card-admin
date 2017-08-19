@@ -78,26 +78,3 @@ class cardInfo extends React.Component {
 
 export default connect()(cardInfo)
 
-
-/*
-const LostReport = ({ userDetail }) => {
-  let Width = document.documentElement.clientWidth
-  let scrollWidth = Width > 769 ? 700 : 500
-  return(
-    <div className={styles.table}>
-      <Table columns={columns} dataSource={data}
-             expandedRowRender={record => record.description ? <span>{record.description}</span> : null}
-             scroll={{ x: scrollWidth }}
-             pagination={false} />
-    </div>
-
-  )
-}
-
-LostReport.propTypes = {
-  userDetail: PropTypes.object,
-  loading: PropTypes.bool,
-}
-
-export default connect(({ userDetail, loading }) => ({ userDetail, loading: loading.models.userDetail }))(LostReport)
-*/

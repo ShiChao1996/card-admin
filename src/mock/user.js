@@ -27,13 +27,13 @@ let database = usersListData.data
 
 const EnumRoleType = {
   ADMIN: 'admin',
-  DEFAULT: 'guest',
+  DEFAULT: 'user',
   DEVELOPER: 'developer',
 }
 
 const userPermission = {
   DEFAULT: {
-    visit: ['1', '2', '21', '7', '5', '51', '52', '53'],
+    visit: [],
     role: EnumRoleType.DEFAULT,
   },
   ADMIN: {
@@ -57,7 +57,7 @@ const adminUsers = [
     permissions: userPermission.DEFAULT,
   }, {
     id: 2,
-    username: '吴彦祖',
+    username: 'dev',
     password: '123456',
     permissions: userPermission.DEVELOPER,
   },

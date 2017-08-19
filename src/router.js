@@ -44,49 +44,17 @@ const Routers = function ({ history, app }) {
       component: App,
       getIndexRoute (nextState, cb) {
         require.ensure([], require => {
-          registerModel(app, require('./models/dashboard'))
-          cb(null, { component: require('./routes/dashboard/') })
-        }, 'dashboard')
+          cb(null, require('./routes/chart/barChart/'))
+        }, 'chart-barChart')
       },
       childRoutes: [
-        {
-          path: 'dashboard',
-          getComponent (nextState, cb) {
-            require.ensure([], require => {
-              registerModel(app, require('./models/dashboard'))
-              cb(null, require('./routes/dashboard/'))
-            }, 'dashboard')
-          },
-        }, {
-          path: 'user',
-          getComponent (nextState, cb) {
-            require.ensure([], require => {
-              registerModel(app, require('./models/user'))
-              cb(null, require('./routes/user/'))
-            }, 'user')
-          },
-        }, {
-          path: 'user/:id',
-          getComponent (nextState, cb) {
-            require.ensure([], require => {
-              registerModel(app, require('./models/user/detail'))
-              cb(null, require('./routes/user/detail/'))
-            }, 'user-detail')
-          },
-        }, {
+         {
           path: 'login',
           getComponent (nextState, cb) {
             require.ensure([], require => {
               registerModel(app, require('./models/login'))
               cb(null, require('./routes/login/'))
             }, 'login')
-          },
-        }, {
-          path: 'request',
-          getComponent (nextState, cb) {
-            require.ensure([], require => {
-              cb(null, require('./routes/request/'))
-            }, 'request')
           },
         }, {
           path: 'UIElement/iconfont',
@@ -124,13 +92,6 @@ const Routers = function ({ history, app }) {
             }, 'UIElement-dataTable')
           },
         }, {
-          path: 'UIElement/editor',
-          getComponent (nextState, cb) {
-            require.ensure([], require => {
-              cb(null, require('./routes/UIElement/editor/'))
-            }, 'UIElement-editor')
-          },
-        }, {
           path: 'chart/lineChart',
           getComponent (nextState, cb) {
             require.ensure([], require => {
@@ -150,14 +111,6 @@ const Routers = function ({ history, app }) {
             require.ensure([], require => {
               cb(null, require('./routes/chart/areaChart/'))
             }, 'chart-areaChart')
-          },
-        }, {
-          path: 'post',
-          getComponent (nextState, cb) {
-            require.ensure([], require => {
-              registerModel(app, require('./models/post'))
-              cb(null, require('./routes/post/'))
-            }, 'post')
           },
         },{
           path: 'card/cardInfo',
@@ -270,6 +223,14 @@ const Routers = function ({ history, app }) {
               registerModel(app, require('./models/newsManage/newsDetail/newsDetail'))
               cb(null, require('./routes/admin/newsManage/newsDetail/'))
             }, 'newsManageDetail')
+          },
+        },{
+          path: 'admin/fileUpLoad',
+          getComponent (nextState, cb) {
+            require.ensure([], require => {
+              registerModel(app, require('./models/fileUpLoad'))
+              cb(null, require('./routes/admin/fileUpLoad/mm'))
+            }, 'fileUpLoad')
           },
         }, {
           path: '*',

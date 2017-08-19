@@ -182,11 +182,7 @@ const EditorPage = () => (
           <CustomizedDotLineChart />
         </Card>
       </Col>
-      <Col {...colProps}>
-        <Card title="VerticalLineChart">
-          <VerticalLineChart />
-        </Card>
-      </Col>
+
     </Row>
   </div>
 )

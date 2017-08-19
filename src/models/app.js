@@ -19,7 +19,7 @@ export default {
         id: 1,
         icon: 'laptop',
         name: 'Dashboard',
-        router: '/dashboard',
+        router: '//UIElement/dataTable',
       },
     ],
     menuPopoverVisible: false,
@@ -55,19 +55,25 @@ export default {
         console.log('success: ', success)
         let menu = Menu
         console.log('menu: ', Menu)
-        if (permissions.role === EnumRoleType.ADMIN || permissions.role === EnumRoleType.DEVELOPER) {
+        if(permissions.role === EnumRoleType.DEVELOPER){
+          permissions.visit = Menu.map(item => item.id)
+          menu = Menu
+        }
+        else if (permissions.role === EnumRoleType.ADMIN) {
           permissions.visit = Menu.map(item => item.id)
           menu = Menu.filter(item => item.permission === EnumRoleType.ADMIN)
         } else {
           console.log('permission is not admin')
-          menu = Menu.filter(item => {
+         /* menu = Menu.filter(item => {
             const cases = [
               permissions.visit.includes(item.id),
               item.mpid ? permissions.visit.includes(item.mpid) || item.mpid === '-1' : true,
               item.bpid ? permissions.visit.includes(item.bpid) : true,
             ]
             return cases.every(_ => _)
-          })
+          })*/
+          menu = Menu.filter(item => item.permission === EnumRoleType.DEFAULT)
+          permissions.visit = menu.map(item => item.id)
         }
         yield put({
           type: 'updateState',

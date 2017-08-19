@@ -1,60 +1,29 @@
 
+/*
+* 此文件为sider 目录渲染数据，ID 为 1 的，是ID为 1 开头的父级菜单。
+* mpid 表示父级菜单 ID
+* permission 为 admin 表示 管理员账户可见
+* 为 user 表示 用户可见
+* */
+
 module.exports = [
   {
     id: '1',
     icon: 'laptop',
     name: 'Dashboard',
-    route: '/dashboard',
-    permission: 'admin'
+    route: '/UIElement/dataTable',
+    permission: 'dev'
   },
-  {
-    id: '2',
-    bpid: '1',
-    name: 'Users',
-    icon: 'user',
-    route: '/user',
-    permission: 'admin'
-  },
-  {
-    id: '7',
-    bpid: '1',
-    name: 'Posts',
-    icon: 'shopping-cart',
-    route: '/post',
-    permission: 'admin'
-  },
-  {
-    id: '21',
-    mpid: '-1',
-    bpid: '2',
-    name: 'User Detail',
-    route: '/user/:id',
-    permission: 'admin'
-  },
-  {
-    id: '3',
-    bpid: '1',
-    name: 'Request',
-    icon: 'api',
-    route: '/request',
-    permission: 'admin'
-  },
+
+
   {
     id: '4',
     bpid: '1',
     name: 'UI Element',
     icon: 'camera-o',
-    permission: 'admin'
+    permission: 'dev'
   },
-  {
-    id: '41',
-    bpid: '4',
-    mpid: '4',
-    name: 'IconFont',
-    icon: 'heart-o',
-    route: '/UIElement/iconfont',
-    permission: 'admin'
-  },
+
   {
     id: '42',
     bpid: '4',
@@ -62,7 +31,7 @@ module.exports = [
     name: 'DataTable',
     icon: 'database',
     route: '/UIElement/dataTable',
-    permission: 'admin'
+    permission: 'dev'
   },
   {
     id: '43',
@@ -71,7 +40,7 @@ module.exports = [
     name: 'DropOption',
     icon: 'bars',
     route: '/UIElement/dropOption',
-    permission: 'admin'
+    permission: 'dev'
   },
   {
     id: '44',
@@ -80,32 +49,23 @@ module.exports = [
     name: 'Search',
     icon: 'search',
     route: '/UIElement/search',
-    permission: 'admin'
+    permission: 'dev'
   },
   {
     id: '45',
     bpid: '4',
     mpid: '4',
-    name: 'Editor',
-    icon: 'edit',
-    route: '/UIElement/editor',
-    permission: 'admin'
-  },
-  {
-    id: '46',
-    bpid: '4',
-    mpid: '4',
     name: 'layer (Function)',
     icon: 'credit-card',
     route: '/UIElement/layer',
-    permission: 'admin'
+    permission: 'dev'
   },
   {
     id: '5',
     bpid: '1',
     name: 'Recharts',
     icon: 'code-o',
-    permission: 'admin'
+    permission: 'dev'
   },
   {
     id: '51',
@@ -114,7 +74,7 @@ module.exports = [
     name: 'LineChart',
     icon: 'line-chart',
     route: '/chart/lineChart',
-    permission: 'admin'
+    permission: 'dev'
   },
   {
     id: '52',
@@ -123,7 +83,7 @@ module.exports = [
     name: 'BarChart',
     icon: 'bar-chart',
     route: '/chart/barChart',
-    permission: 'admin'
+    permission: 'dev'
   },
   {
     id: '53',
@@ -132,114 +92,76 @@ module.exports = [
     name: 'AreaChart',
     icon: 'area-chart',
     route: '/chart/areaChart',
-    permission: 'admin'
+    permission: 'dev'
   },
-  {
-    id: '6',
-    bpid: '1',
-    name: 'Test Navigation',
-    icon: 'setting',
-    permission: 'admin'
-  },
-  {
-    id: '61',
-    bpid: '6',
-    mpid: '6',
-    name: 'Test Navigation1',
-    route: '/navigation/navigation1',
-    permission: 'admin'
-  },
-  {
-    id: '62',
-    bpid: '6',
-    mpid: '6',
-    name: 'Test Navigation2',
-    route: '/navigation/navigation2',
-    permission: 'admin'
-  },
-  {
-    id: '621',
-    bpid: '62',
-    mpid: '62',
-    name: 'Test Navigation21',
-    route: '/navigation/navigation2/navigation1',
-    permission: 'admin'
-  },
-  {
-    id: '622',
-    bpid: '62',
-    mpid: '62',
-    name: 'Test Navigation22',
-    route: '/navigation/navigation2/navigation2',
-    permission: 'admin'
-  },
+
   {
     id: '8',
     bpid: '1',
     name: 'Card',
     icon: 'setting',
-    permission: 'admin'
+    permission: 'user'
   },
   {
     id: '81',
     mpid: '8',
     name: 'cardInfo',
     route: '/card/cardInfo',
-    permission: 'admin'
+    permission: 'user'
   },
   {
     id: '82',
     mpid: '8',
     name: 'news',
     route: '/card/news',
-    permission: 'admin'
+    permission: 'user'
   },
   {
     id: '83',
     mpid: '-1',
     name: 'news',
     route: '/card/news/:id',
-    permission: 'admin'
+    permission: 'user'
   },
   {
     id: '84',
     mpid: '8',
     name: 'loseReport',
     route: '/card/lostReport',
-    permission: 'admin'
+    permission: 'user'
   },
   {
     id: '85',
     mpid: '8',
     name: 'fileDownload',
     route: '/card/fileDownload',
-    permission: 'admin'
+    permission: 'user'
   },
   {
     id: '9',
     bpid: '1',
     name: 'User',
     icon: 'user',
-    permission: 'admin'
+    permission: 'user'
   },
   {
     id: '91',
     mpid: '9',
     name: 'Personality',
     route: '/myUser/person',
-    permission: 'admin'
+    permission: 'user'
   },
   {
     id: '92',
     mpid: '9',
     name: 'loseReport',
     route: '/myUser/reportLose',
-    permission: 'admin'
+    permission: 'user'
   },
   {
     id: 'a',
     bpid: '1',
-    name: 'User',
+    name: 'admin',
     icon: 'user',
     permission: 'admin'
   },
@@ -271,7 +193,15 @@ module.exports = [
     route: '/admin/newsManage/:id',
     permission: 'admin'
   },
+  {
+    id: 'a5',
+    mpid: 'a',
+    name: 'fileUpLoad',
+    route: '/admin/fileUpLoad',
+    permission: 'admin'
+  },
 ]
+
 /*
 
 module.exports = {

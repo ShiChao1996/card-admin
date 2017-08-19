@@ -50,7 +50,7 @@ const data = [{
 }];
 
 
-class cardInfo extends React.Component {
+class FileDownLoad extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -72,4 +72,4 @@ class cardInfo extends React.Component {
 
 }
 
-export default connect()(cardInfo)
+export default connect()(FileDownLoad)
